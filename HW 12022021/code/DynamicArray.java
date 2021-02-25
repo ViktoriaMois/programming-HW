@@ -9,6 +9,8 @@ public class DynamicArray <A> {
 
     }
 
+    private void throwsException() {
+        throw new ArithmeticException("False");
 
     }
 
