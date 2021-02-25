@@ -57,4 +57,13 @@ public class DynamicArray <A> {
         }
        return -1;
 
+    public int findLast(A value){
+        for (int i = Size() - 1; i > -1; i--){
+            if (Array[i] == value){
+                return i;
+            }
+        }
+        return -1;
+
+    }
 }
