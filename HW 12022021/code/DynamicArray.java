@@ -22,6 +22,19 @@ public class DynamicArray <A> {
 
     }
 
+    public A get (int index, A value){
+        if (start_size() <= index || index < 0)
+            throwsException();
+        return Array[index];
+    }
+
+    public void set (int index, A value){
+        if (start_size() <= index || index < 0)
+            throwsException();
+        else
+            Array[index] = value;
+        
+    }
 
 
 }
