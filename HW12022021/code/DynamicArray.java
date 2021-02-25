@@ -6,6 +6,7 @@ public class DynamicArray <A> {
     private A[] Array;
 
     public DynamicArray () {
+        Array = (A[]) new Object[DEFAULT_SIZE];
 
     }
 
@@ -14,29 +15,37 @@ public class DynamicArray <A> {
 
     }
 
-    public DynamicArray(int start_size){
-        if (start_size > -1)
-            Array =  (A[]) new Object[start_size];
+    public DynamicArray(int StartSize){
+        if (StartSize > -1)
+            Array =  (A[]) new Object[StartSize];
         else
             throwsException();
 
     }
 
+    public int StartSize(){
+        return Array.length;
+
+    }
+
     public A get (int index, A value){
-        if (start_size() <= index || index < 0)
+        if (StartSize() <= index || index < 0)
             throwsException();
         return Array[index];
     }
 
     public void set (int index, A value){
-        if (start_size() <= index || index < 0)
+        if (StartSize() <= index || index < 0)
             throwsException();
         else
             Array[index] = value;
-        
+
+    }
+
     public void resize (int NewSize){
         if (NewSize < 1)
             throwsException();
+
     }
 
 
