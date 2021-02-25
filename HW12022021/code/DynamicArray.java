@@ -48,5 +48,13 @@ public class DynamicArray <A> {
 
     }
 
+    public int findFirst(A value){
+        for (int i = 0; i < Size(); i++){
+            if (Array[i] == value){
+                return i;
+
+            }
+        }
+       return -1;
 
 }
