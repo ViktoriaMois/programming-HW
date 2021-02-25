@@ -34,6 +34,9 @@ public class DynamicArray <A> {
         else
             Array[index] = value;
         
+    public void resize (int NewSize){
+        if (NewSize < 1)
+            throwsException();
     }
 
 
