@@ -6,5 +6,5 @@ public class DoubleLinkedList<L> {
     public DoubleLinkedList() {
 
         head = null;
-        tale = null;
+        tail = null;
 
