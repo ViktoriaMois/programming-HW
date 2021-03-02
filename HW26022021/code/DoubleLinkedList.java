@@ -1,7 +1,7 @@
 public class DoubleLinkedList<L> {
 
-    private DoubleLinkedList<L> head;
-    private DoubleLinkedList<L> tale;
+    private DoubleLinkedListElement head;
+    private DoubleLinkedListElement tail;
 
     public DoubleLinkedList() {
 
