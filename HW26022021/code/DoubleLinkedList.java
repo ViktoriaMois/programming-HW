@@ -97,3 +97,24 @@ public class DoubleLinkedList<L> {
         size--;
     }
 
+    public void searchIndex(L data) {
+        int i = 1;
+        boolean point = false;
+        DoubleLinkedListElement current = head;
+        if (head == null) {
+            return;
+        }
+        while (current != null) {
+            if (current.data == data) {
+                point = true;
+                break;
+            }
+            current = current.next;
+            i++;
+        }
+        if (point)
+            System.out.println("Element found. index:" +i);
+        else
+            System.out.println("Element not found");
+    }
+
