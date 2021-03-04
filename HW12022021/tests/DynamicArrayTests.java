@@ -1,8 +1,10 @@
 package tests;
 
-import HW12022021.code.DynamicArray;
+import code.DynamicArray;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.tests;
+import org.junit.jupiter.api.Test;
+
+public class DynamicArrayTests extends Assertions {
 
 public class DynamicArrayTests extends {
     
