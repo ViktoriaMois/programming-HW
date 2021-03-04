@@ -5,7 +5,6 @@ public class DoubleLinkedList<L> {
     private int size;
 
     public DoubleLinkedList() {
-
         head = null;
         tail = null;
         size = 0;
