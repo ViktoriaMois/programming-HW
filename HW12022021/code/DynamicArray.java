@@ -23,19 +23,19 @@ public class DynamicArray <A> {
 
     }
 
-    public int StartSize(){
+    public int Size(){
         return Array.length;
 
     }
 
-    public A get (int index, A value){
-        if (StartSize() <= index || index < 0)
+    public A get(int index){
+        if (Size() <= index || index < 0)
             throwsException();
         return Array[index];
     }
 
     public void set (int index, A value){
-        if (StartSize() <= index || index < 0)
+        if (Size() <= index || index < 0)
             throwsException();
         else
             Array[index] = value;
