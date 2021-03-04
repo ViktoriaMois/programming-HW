@@ -80,3 +80,20 @@ public class DoubleLinkedList<L> {
         size++;
     }
 
+    public void remove (L x){
+        if (head.data.equals(x)){
+            head = head.next;
+            return;
+        }
+        DoubleLinkedListElement<L> current = head;
+        while (current != null && !current.data.equals(x))
+            current = current.next;
+        if (current == null)
+            throw new ArithmeticException(x.toString());
+        if (current.next != null)
+            current.next.prev = current.prev;
+        current.prev.next = current.next;
+
+        size--;
+    }
+
