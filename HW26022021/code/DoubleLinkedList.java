@@ -120,3 +120,4 @@ public class DoubleLinkedList<L> {
             System.out.println("Element not found");
     }
 
+}
