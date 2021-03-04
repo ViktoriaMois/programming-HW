@@ -15,7 +15,7 @@ public class DoubleLinkedList<L> {
             head.prev = tmp;
         }
         head = tmp;
-        if(tail == null) {
+        if (tail == null) {
             tail = tmp;
         }
         size++;
