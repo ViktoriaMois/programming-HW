@@ -34,6 +34,7 @@ public class DynamicArray <A> {
         return Array[index];
     }
 
+
     public void set (int index, A value){
         if (Size() <= index || index < 0)
             throwsException();
@@ -57,6 +58,8 @@ public class DynamicArray <A> {
         }
        return -1;
 
+    }
+
     public int findLast(A value){
         for (int i = Size() - 1; i > -1; i--){
             if (Array[i] == value){
@@ -66,4 +69,6 @@ public class DynamicArray <A> {
         return -1;
 
     }
+
+
 }
