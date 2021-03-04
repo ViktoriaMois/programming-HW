@@ -42,3 +42,8 @@ public class DoubleLinkedList<L> {
         }
         size++;
     }
+
+    private void throwsException(){
+            throw new ArithmeticException();
+    }
+
