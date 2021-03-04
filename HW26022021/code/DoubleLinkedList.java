@@ -24,11 +24,11 @@ public class DoubleLinkedList<L> {
     public void addLast(L data) {
 
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, null, tail);
-        if(tail != null) {
+        if (tail != null) {
             tail.next = tmp;
         }
         tail = tmp;
-        if(head == null) {
+        if (head == null) {
             head = tmp;
         }
         size++;
