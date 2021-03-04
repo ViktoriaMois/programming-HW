@@ -49,6 +49,18 @@ public class DynamicArray <A> {
 
     }
 
+    public int parameter(){
+        int num = 0;
+        for (int i = 0; i < Size(); i++){
+            if(Array[i] != null){
+               num = i;
+
+            }
+        }
+        return num + 1;
+
+    }
+
     public int findFirst(A value){
         for (int i = 0; i < Size(); i++){
             if (Array[i] == value){
