@@ -24,7 +24,7 @@ public class DoubleLinkedList<L> {
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
         if (head != null) {
             head.prev = tmp;
-        }
+            }
         head = tmp;
         if (tail == null) {
             tail = tmp;

@@ -41,7 +41,7 @@ public class DoubleLinkedListTest extends Assertions {
         for (int i = 0; i < 5; i++) {
             doublelist.addFirst(i);
     }
-        assertEquals("4, 3, 2, 1, 0", doublelist.toString());
+        assertEquals("[4, 3, 2, 1, 0]", doublelist.toString());
     }
 
     @Test
