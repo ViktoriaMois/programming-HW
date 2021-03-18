@@ -40,6 +40,24 @@ public class DoubleLinkedList<L> {
         return size == 0;
     }
 
+    public void setElementByNumber(int number, DoubleLinkedListElement element){
+        if (number < 0 || number > size){
+            throw new RuntimeException(outOfRangeError);
+        }
+        DoubleLinkedListElement counter = head;
+        for (int currData = 0; currData < number; currData ++) {
+            counter = counter.getNextElement();
+        }
+        if (counter.prev == null){
+            head = counter.next;
+            return;
+        }
+        if (counter.next == null){
+            tail = counter;
+        }
+        counter.prev.next = element;
+    }
+
     public void addHead(L data) {
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
         if (head != null) {
