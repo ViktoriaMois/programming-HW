@@ -25,6 +25,10 @@ public DoubleLinkedListElement getNextElement(){
         this.next = next;
     }
 
+    public void setPrevElement(){
+    this.prev = prev;
+    }
+
 public L getData(){
     return data;
 }
