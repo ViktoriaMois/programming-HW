@@ -31,7 +31,7 @@ public class DoubleLinkedList<L> {
         return size == 0;
     }
 
-    public void addFirst(L data) {
+    public void addHead(L data) {
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
         if (head != null) {
             head.prev = tmp;
@@ -43,7 +43,7 @@ public class DoubleLinkedList<L> {
         size++;
     }
 
-    public void addLast(L data) {
+    public void addTail(L data) {
 
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, null, tail);
         if (tail != null) {
