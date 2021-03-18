@@ -5,6 +5,7 @@ public class DoubleLinkedList<L> {
     private DoubleLinkedListElement head;
     private DoubleLinkedListElement tail;
     private int size;
+    public static String outOfRangeError = "out of range";
 
     public L getData(int number){
         if (number < 0 || number > size) {
