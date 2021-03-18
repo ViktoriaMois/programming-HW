@@ -6,7 +6,7 @@ public class DoubleLinkedList<L> {
     private DoubleLinkedListElement tail;
     private int size;
 
-    public void getData(int number){
+    public L getData(int number){
         if (number < 0 || number > size) {
             throw new RuntimeException();
         }
@@ -60,38 +60,38 @@ public class DoubleLinkedList<L> {
             throw new ArithmeticException();
     }
 
-    public void addBefore (L x, L y){
-        if (isEmpty())
-            throw new ArithmeticException(x.toString());
-        DoubleLinkedListElement<L> current = head;
-        while (current != null && !current.data.equals(x))
-            current = current.next;
-        if (current == null)
-            throw new ArithmeticException(x.toString());
-        DoubleLinkedListElement<L> tmp = new DoubleLinkedListElement<L>(current.prev, y, current);
-        if (current.prev != null)
-            current.prev.next = tmp;
-        else head = tmp;
-        current.prev = tmp;
-
-        size++;
-    }
-
-    public void addAfter (L x, L y){
-        if (isEmpty())
-            throw new ArithmeticException(x.toString());
-        DoubleLinkedListElement<L> current = head;
-        while (current != null && !current.data.equals(x))
-            current = current.next;
-        if (current == null)
-            throw new ArithmeticException(x.toString());
-        DoubleLinkedListElement<L> tmp = new DoubleLinkedListElement<L>(current, y, current.next);
-        if (current.next != null)
-            current.next.prev = tmp;
-        current.next = tmp;
-
-        size++;
-    }
+//    public void addBefore (L x, L y){
+//        if (isEmpty())
+//            throw new ArithmeticException(x.toString());
+//        DoubleLinkedListElement<L> current = head;
+//        while (current != null && !current.data.equals(x))
+//            current = current.next;
+//        if (current == null)
+//            throw new ArithmeticException(x.toString());
+//        DoubleLinkedListElement<L> tmp = new DoubleLinkedListElement<L>(current.prev, y, current);
+//        if (current.prev != null)
+//            current.prev.next = tmp;
+//        else head = tmp;
+//        current.prev = tmp;
+//
+//        size++;
+//    }
+//
+//    public void addAfter (L x, L y){
+//        if (isEmpty())
+//            throw new ArithmeticException(x.toString());
+//        DoubleLinkedListElement<L> current = head;
+//        while (current != null && !current.data.equals(x))
+//            current = current.next;
+//        if (current == null)
+//            throw new ArithmeticException(x.toString());
+//        DoubleLinkedListElement<L> tmp = new DoubleLinkedListElement<L>(current, y, current.next);
+//        if (current.next != null)
+//            current.next.prev = tmp;
+//        current.next = tmp;
+//
+//        size++;
+//    }
 
     public void remove (L x){
         if (head.data.equals(x)){
