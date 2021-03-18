@@ -23,6 +23,14 @@ public class DoubleLinkedList<L> {
         size = 0;
     }
 
+    public DoubleLinkedListElement<L> getTail(){
+        return tail;
+    }
+
+    public DoubleLinkedListElement<L> getHead(){
+        return head;
+    }
+
     public int size(){
         return size;
     }
