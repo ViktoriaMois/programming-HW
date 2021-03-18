@@ -17,6 +17,9 @@ public DoubleLinkedListElement getNextElement(){
     return next;
 }
 
+    public DoubleLinkedListElement getPrevElement(){
+        return prev;
+    }
 public L getData(){
     return data;
 }

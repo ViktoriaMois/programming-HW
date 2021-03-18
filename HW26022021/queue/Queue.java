@@ -1,6 +1,7 @@
 package queue;
 
 import code.DoubleLinkedList;
+import code.DoubleLinkedListElement;
 
 public class Queue {
 
@@ -21,5 +22,14 @@ public class Queue {
         size = size + 1;
     }
 
+    public void dequeue(){
+        DoubleLinkedListElement elementToSet = doublelist.getElementByNumber();
+        doublelist.setElementByNumber(0, elementToSet);
+        size--;
+    }
+
+    public void printAll(){
+        doublelist.printAll();
+    }
 
 }
