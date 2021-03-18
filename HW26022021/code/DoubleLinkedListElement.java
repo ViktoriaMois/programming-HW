@@ -15,4 +15,8 @@ public DoubleLinkedListElement(L data, DoubleLinkedListElement<L> next, DoubleLi
 
     public DoubleLinkedListElement(DoubleLinkedListElement<L> prev, L y, DoubleLinkedListElement<L> current) {
     }
+public DoubleLinkedListElement getNextElement(){
+    return next;
+}
+
 }
