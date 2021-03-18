@@ -52,7 +52,6 @@ public class DoubleLinkedList<L> {
     }
 
     public void addTail(L data) {
-
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, null, tail);
         if (tail != null) {
             tail.next = tmp;
