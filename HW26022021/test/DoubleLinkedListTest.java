@@ -1,19 +1,10 @@
 package test;
 
 import code.DoubleLinkedList;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class DoubleLinkedListTest extends Assertions {
-
-    private DoubleLinkedList<Integer> doublelist;
-
-    @Before
-    public void setUp() {
-        doublelist = new DoubleLinkedList<Integer>();
-    }
 
     @Test
     public void testIsEmptyReturnsTrue() {
@@ -27,18 +18,15 @@ public class DoubleLinkedListTest extends Assertions {
         assertEquals(0, doublelist.size());
     }
 
-    @Test(expected = ArithmeticException.class)
     @Test
     public void testAddBeforeArithmeticException() {
-        doublelist.addFirst(1);
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         doublelist.addHead(1);
         doublelist.addBefore(0, 2);
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testAddAfterArithmeticException() {
-        doublelist.addFirst(1);
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         doublelist.addHead(1);
         doublelist.addAfter(0, 2);
@@ -46,20 +34,15 @@ public class DoubleLinkedListTest extends Assertions {
 
     @Test
     public void testAddFirst() {
-        for (int i = 0; i < 5; i++) {
-            doublelist.addFirst(i);
-    }
-        assertEquals("[4, 3, 2, 1, 0]", doublelist.toString());
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         doublelist.addHead(50);
+        assertEquals(50, doublelist.);
     }
 
     @Test
-    public void testAddLast(){
     public void testAddTail(){
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         for (int i = 0; i < 5; i++) {
-            doublelist.addLast(i);
             doublelist.addTail(i);
         }
         assertEquals("[0, 1, 2, 3, 4]", doublelist.toString());
@@ -69,7 +52,6 @@ public class DoubleLinkedListTest extends Assertions {
     public void testAddAfter(){
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         for (int i = 0; i < 5; i++){
-            doublelist.addLast(i);
             doublelist.addTail(i);
         }
         doublelist.addAfter(4, 10);
@@ -83,7 +65,6 @@ public class DoubleLinkedListTest extends Assertions {
     public void testBefore(){
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         for (int i = 0; i < 5; i++){
-            doublelist.addFirst(i);
             doublelist.addHead(i);
         }
         doublelist.addBefore(4, 10);
@@ -97,7 +78,6 @@ public class DoubleLinkedListTest extends Assertions {
     public void testRemove(){
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         for (int i = 0; i < 15; i++){
-            doublelist.addLast(i);
             doublelist.addTail(i);
         }
         for (int i = 0; i < 10; i++){
