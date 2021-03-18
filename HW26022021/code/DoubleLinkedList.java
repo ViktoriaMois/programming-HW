@@ -168,4 +168,18 @@ public class DoubleLinkedList<L> {
             System.out.println("Element not found");
     }
 
+
+    public void printAll() {
+        if (isEmpty()){
+            throw new RuntimeException(listIsEmptyError);
+        }
+        DoubleLinkedListElement counter = head;
+        counter.setNextElement(head.getNextElement());
+
+        while (counter.getNextElement() != null){
+            System.out.println(counter.getData() + " ");
+            counter = counter.getNextElement();
+        }
+        System.out.println(counter.getData());
+    }
 }
