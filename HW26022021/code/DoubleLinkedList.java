@@ -58,6 +58,17 @@ public class DoubleLinkedList<L> {
         counter.prev.next = element;
     }
 
+    public int getElementByNumber(int number){
+        if (number < 0 || number > size){
+            throw new RuntimeException(outOfRangeError);
+        }
+        DoubleLinkedListElement counter = head;
+        for (int currNumber = 0; currNumber < number; currNumber++){
+            counter = counter.getNextElement();
+        }
+        return counter;
+    }
+
     public void addHead(L data) {
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
         if (head != null) {
