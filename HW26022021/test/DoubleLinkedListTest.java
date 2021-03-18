@@ -33,7 +33,7 @@ public class DoubleLinkedListTest extends Assertions {
     }
 
     @Test
-    public void testAddFirst() {
+    public void testAddHead() {
         DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
         doublelist.addHead(50);
         assertEquals(50, doublelist.);
