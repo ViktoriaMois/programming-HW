@@ -6,6 +6,17 @@ public class DoubleLinkedList<L> {
     private DoubleLinkedListElement tail;
     private int size;
 
+    public void getData(int number){
+        if (number < 0 || number > size) {
+            throw new RuntimeException();
+        }
+        DoubleLinkedListElement<L> counter = head;
+        for (int currData = 0; currData < number; currData++){
+            counter = counter.getNextElement();
+        }
+        return counter.data;
+    }
+
     public DoubleLinkedList() {
         head = null;
         tail = null;
