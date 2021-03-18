@@ -16,5 +16,10 @@ public class Queue {
         return doublelist.getHead().getData();
     }
 
+    public void enqueue(int data){
+        doublelist.addTail(data);
+        size = size + 1;
+    }
+
 
 }
