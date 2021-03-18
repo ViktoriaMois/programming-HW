@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class QueueTest {
 
+
+    //function enqueueTestData. Tests variety of elements and their order in case of adding elements.
     @Test
     public void enqueueTestData(){
         Queue queue = new Queue();
@@ -15,6 +17,8 @@ public class QueueTest {
         assertEquals(15, queue.peek());
     }
 
+
+    //function enqueueTestSize. Tests changes in size by adding elements.
     @Test
     public void enqueueTestSize(){
         Queue queue = new Queue();
@@ -26,6 +30,8 @@ public class QueueTest {
 
     }
 
+
+    //function dequeueTestData. Tests variety of elements and their order in case of deleting elements.
     @Test
     public void dequeueTestData(){
         Queue queue = new Queue();
@@ -35,6 +41,7 @@ public class QueueTest {
         assertEquals(15, queue.peek());
     }
 
+    //function dequeueTestSize. Tests changes in size by deleting elements.
     @Test
     public void dequeueTestSize(){
         Queue queue = new Queue();
