@@ -19,4 +19,8 @@ public DoubleLinkedListElement getNextElement(){
     return next;
 }
 
+public L getData(){
+    return data;
+}
+
 }
