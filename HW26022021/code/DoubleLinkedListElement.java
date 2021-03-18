@@ -20,6 +20,11 @@ public DoubleLinkedListElement getNextElement(){
     public DoubleLinkedListElement getPrevElement(){
         return prev;
     }
+
+    public void setNextElement(DoubleLinkedListElement next){
+        this.next = next;
+    }
+
 public L getData(){
     return data;
 }
