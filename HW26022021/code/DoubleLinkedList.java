@@ -45,7 +45,7 @@ public class DoubleLinkedList<L> {
             throw new RuntimeException(outOfRangeError);
         }
         DoubleLinkedListElement counter = head;
-        for (int currData = 0; currData < number; currData ++) {
+        for (int currNumber = 0; currNumber < number; currNumber++) {
             counter = counter.getNextElement();
         }
         if (counter.prev == null){
