@@ -65,7 +65,7 @@ public class DoubleLinkedList<L> {
     }
 
     private void throwsException(){
-            throw new ArithmeticException();
+            throw new RuntimeException();
     }
 
 //    public void addBefore (L x, L y){
