@@ -12,5 +12,9 @@ public class Queue {
         return size;
     }
 
+    public Object peek(){
+        return doublelist.getHead().getData();
+    }
+
 
 }
