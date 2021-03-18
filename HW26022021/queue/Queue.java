@@ -23,7 +23,7 @@ public class Queue {
     }
 
     public void dequeue(){
-        DoubleLinkedListElement elementToSet = doublelist.getElementByNumber();
+        DoubleLinkedListElement elementToSet = doublelist.getElementByNumber(1);
         doublelist.setElementByNumber(0, elementToSet);
         size--;
     }

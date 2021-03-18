@@ -59,7 +59,7 @@ public class DoubleLinkedList<L> {
         counter.prev.next = element;
     }
 
-    public int getElementByNumber(int number){
+    public DoubleLinkedListElement getElementByNumber(int number){
         if (number < 0 || number > size){
             throw new RuntimeException(outOfRangeError);
         }

@@ -1,11 +1,12 @@
 package queue;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class QueueTest {
 
+public class QueueTest {
 
     //function enqueueTestData. Tests variety of elements and their order in case of adding elements.
     @Test
