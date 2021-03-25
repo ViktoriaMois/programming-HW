@@ -11,4 +11,11 @@ public class StackTest {
             Stack<Integer> stack = new Stack<Integer>();
         }
 
+        @Test
+        public void testIsEmptyTrue (){
+            Stack<Integer> stack = new Stack<Integer>();
+            stack.pop();
+            assertEquals(true, stack.isEmpty());
+        }
+
     }
