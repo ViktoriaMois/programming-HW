@@ -43,6 +43,14 @@ public class DynamicArrayTests extends Assertions {
         assertEquals(1, array.findFirst(15));
     }
 
+    @Test
+    public void testFindLast(){
+        DynamicArray array = new DynamicArray(15);
+        for (int i = 0; i < array.getSize(); i++){
+            array.setData(i, "empty");
+        }
+        array.setData(1, 15);
+        assertEquals(1, array.findLast(15));
     }
 
 
