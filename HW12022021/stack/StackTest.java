@@ -24,4 +24,10 @@ public class StackTest {
             assertEquals(false, stack.isEmpty());
         }
 
+        @Test
+        public void testPushData (){
+            Stack<Integer> stack = new Stack<Integer>();
+            stack.push(1);
+            assertEquals(1, stack.peek());
+        }
     }
