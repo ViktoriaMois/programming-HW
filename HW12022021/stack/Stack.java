@@ -3,10 +3,9 @@ package stack;
 import code.DynamicArray;
 
 public class Stack<A> {
-    private A[] array;
     private int size = 0;
     private int top = -1;
-    DynamicArray<A> ar = new DynamicArray<A>(size);
+    DynamicArray<A> array = new DynamicArray<A>(size);
 
     public boolean isEmpty() {
         return (top == -1);
@@ -17,16 +16,18 @@ public class Stack<A> {
     }
 
     public void push(A value){
-        array[top++] = value;
+        if (size > array.maxSize){
+            throw new RuntimeException();
+        }
+        array.ar[top++] = value;
     }
 
-    public int pop(){
+    public A pop(){
         if(isEmpty()){
             throw new RuntimeException();
-            return 0;
         }
         else {
-            return array[top--];
+            return array.ar[top--];
         }
     }
 
@@ -35,13 +36,13 @@ public class Stack<A> {
             throw new RuntimeException();
         }
         else {
-            return array[top];
+            return array.ar[top];
         }
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(ar.getData(i));
+            System.out.println(array.getData(i));
         }
     }
 }
