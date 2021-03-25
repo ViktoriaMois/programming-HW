@@ -24,7 +24,7 @@ public class DynamicArray <A> {         //Task 1 complete
         ar = (A[]) new Object[size];
     }
 
-    public void addData(A value) {
+    public void addData(A value) {                    //Task 2 complete
         resize(ar.length + 1);
         ar[ar.length - 1] = value;
     }
@@ -48,7 +48,7 @@ public class DynamicArray <A> {         //Task 1 complete
         ar[index] = value;
     }
 
-    public void insert(int index, A value) {            
+    public void insert(int index, A value) {                   //Task 2 complete
         if (index < 0 || index > ar.length) {
             throw new RuntimeException(outBorderError);
         }
@@ -86,7 +86,7 @@ public class DynamicArray <A> {         //Task 1 complete
         return num + 1;
     }
 
-    public int findFirst(A value) {
+    public int findFirst(A value) {                        //Task 2 complete
         for (int i = 0; i < ar.length; i++) {
             if (ar[i] == value) {
                 return i;
@@ -95,7 +95,7 @@ public class DynamicArray <A> {         //Task 1 complete
         throw new RuntimeException(elementError404);
     }
 
-    public int findLast(A value) {
+    public int findLast(A value) {                        //Task 2 complete
         int lastind = -1;
         for (int i = 0; i < ar.length; i++) {
             if (ar[i] == value) {
@@ -108,7 +108,7 @@ public class DynamicArray <A> {         //Task 1 complete
         throw new RuntimeException(elementError404);
     }
 
-    public void remove(int index) {
+    public void remove(int index) {                        //Task 2 complete
         if (index < 0 || index > ar.length) {
             throw new RuntimeException(outBorderError);
         }
