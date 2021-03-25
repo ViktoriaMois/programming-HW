@@ -7,7 +7,14 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Array;
 
 public class DynamicArrayTests extends Assertions {
-    
+
+    @Test
+    public void init_sizeDefault() {
+        DynamicArray array = new DynamicArray();
+        assertEquals(array.DEFAULT_SIZE, array.getSize());
+    }
+
+
     @Test
     public void testGetSize(){
         DynamicArray array = new DynamicArray(10);
