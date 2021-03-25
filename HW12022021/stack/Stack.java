@@ -14,4 +14,9 @@ public class Stack<A> {
         return size;
     }
 
+    public void push(A value){
+        ar.addData(value);
+        size++;
+    }
+
 }
