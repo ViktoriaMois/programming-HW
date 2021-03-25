@@ -38,7 +38,7 @@ public class DynamicArrayTests extends Assertions {
 
     @Test
     public void testFindFirst(){
-        DynamicArray array = new DynamicArray(15);
+        DynamicArray array = new DynamicArray(14);
         for (int i = 0; i < array.getSize(); i++) {
             array.setData(i, "empty");
         }
@@ -49,7 +49,7 @@ public class DynamicArrayTests extends Assertions {
 
     @Test
     public void testFindLast(){
-        DynamicArray array = new DynamicArray(15);
+        DynamicArray array = new DynamicArray(14);
         for (int i = 0; i < array.getSize(); i++){
             array.setData(i, "empty");
         }
