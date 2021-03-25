@@ -66,4 +66,13 @@ public class StackTest {
         }
 
 
+        @Test
+        public void testPopData (){
+            Stack<Integer> stack = new Stack<Integer>();
+            stack.push(21);
+            stack.push(31);
+            stack.pop();
+            assertEquals(21, stack.peek());
+        }
+
     }
