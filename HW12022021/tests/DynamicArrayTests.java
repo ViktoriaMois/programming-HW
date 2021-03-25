@@ -41,6 +41,7 @@ public class DynamicArrayTests extends Assertions {
             array.setData(i, "empty");
         }
         array.setData(1, 15);
+        array.setData(2, 25);
         assertEquals(1, array.findFirst(15));
     }
 
@@ -51,7 +52,8 @@ public class DynamicArrayTests extends Assertions {
             array.setData(i, "empty");
         }
         array.setData(1, 15);
-        assertEquals(1, array.findLast(15));
+        array.setData(2, 25);
+        assertEquals(2, array.findLast(25));
     }
 
     @Test
