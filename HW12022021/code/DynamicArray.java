@@ -48,6 +48,20 @@ public class DynamicArray <A> {         //Task 1 complete
         ar[index] = value;
     }
 
+    public void insert(int index, A value) {            
+        if (index < 0 || index > ar.length) {
+            throw new RuntimeException(outBorderError);
+        }
+
+        resize(ar.length + 1);
+
+        for (int i = ar.length - 1; i > index; i--) {
+            ar[i] = ar[i-1];
+        }
+
+        setData(index, value);
+    }
+
     public void resize(int NewSize) {
         if (NewSize < 1) {
             throw new RuntimeException(wrongSizeError);
