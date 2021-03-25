@@ -34,6 +34,14 @@ public class DynamicArrayTests extends Assertions {
         assertEquals(345, array.getData(1));
     }
 
+    @Test
+    public void testInsertIndex() {
+        DynamicArray array = new DynamicArray(1);
+        array.setData(0, 10);
+        array.insert(0, 5);
+        assertEquals(1, array.findFirst(10));
+    }
+
     }
 
     @Test
