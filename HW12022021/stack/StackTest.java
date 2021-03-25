@@ -25,6 +25,13 @@ public class StackTest {
         }
 
         @Test
+        public void testPushSize (){
+            Stack<Integer> stack = new Stack<Integer>();
+            stack.push(1);
+            assertEquals(2, stack.getSize());
+        }
+
+        @Test
         public void testPushData (){
             Stack<Integer> stack = new Stack<Integer>();
             stack.push(1);
