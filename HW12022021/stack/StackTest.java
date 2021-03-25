@@ -56,4 +56,14 @@ public class StackTest {
             assertEquals(2, stack.peek());
         }
 
+        @Test
+        public void testPopSize(){
+            Stack<Integer> stack = new Stack<Integer>();
+            stack.push(2);
+            stack.push(3);
+            stack.pop();
+            assertEquals(2, stack.getSize());
+        }
+
+
     }
