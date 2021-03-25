@@ -53,5 +53,15 @@ public class DynamicArrayTests extends Assertions {
         assertEquals(1, array.findLast(15));
     }
 
+    @Test
+    public void testRemove(){
+        DynamicArray array = new DynamicArray(3);
 
+        array.setData(0, 5);
+        array.setData(1, 15);
+        array.setData(2, 4);
+        array.remove(1);
+
+        assertEquals(2, array.getSize());
+    }
 }
