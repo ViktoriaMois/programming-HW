@@ -38,7 +38,7 @@ public class DoubleLinkedListTest extends Assertions {
         for (int i = 0; i < 5; i++) {
             doublelist.addHead(i);
         }
-        assertEquals(50, doublelist.getData(0));
+        assertEquals(4, doublelist.getData(0));
     }
 
     @Test
@@ -79,18 +79,13 @@ public class DoubleLinkedListTest extends Assertions {
 //    @Test
 //    public void testRemove(){
 //        DoubleLinkedList<Integer> doublelist = new DoubleLinkedList<Integer>();
-//        for (int i = 0; i < 15; i++){
-//            doublelist.addTail(i);
-//        }
-//        for (int i = 0; i < 10; i++){
-//            doublelist.remove(i);
-//        }
-//        assertEquals("[10, 11, 12, 13, 14]", doublelist.getData());
+//        doublelist.addHead(11);
+//        doublelist.addHead(10);
+//        doublelist.addTail(15);
+//        doublelist.remove(1);
+//        doublelist.remove(2);
+//        assertEquals(10, doublelist.getData(0));
 //    }
 
-    @Test
-    public void testSearchIndex(){
-
-    }
 
 }
