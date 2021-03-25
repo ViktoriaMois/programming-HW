@@ -3,11 +3,13 @@ package stack;
 import code.DynamicArray;
 
 public class Stack<A> {
-    int size = 1;
+    private A[] array;
+    private int size = 0;
+    private int top = -1;
     DynamicArray<A> ar = new DynamicArray<A>(size);
 
     public boolean isEmpty() {
-        return size == 0;
+        return (top == -1);
     }
 
     public int getSize() {
@@ -15,17 +17,26 @@ public class Stack<A> {
     }
 
     public void push(A value){
-        ar.addData(value);
-        size++;
+        array[top++] = value;
     }
 
-    public void pop(){
-        ar.resize(size - 1);
-        size--;
+    public int pop(){
+        if(isEmpty()){
+            throw new RuntimeException();
+            return 0;
+        }
+        else {
+            return array[top--];
+        }
     }
 
     public A peek(){
-        return ar.getData(size - 1);
+        if(isEmpty()){
+            throw new RuntimeException();
+        }
+        else {
+            return array[top];
+        }
     }
 
     public void print() {
