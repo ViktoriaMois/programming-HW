@@ -2,13 +2,12 @@ package code;
 
 public class DynamicArray <A> {
 
-    public int DEFAULT_SIZE = 1;
+    public int DEFAULT_SIZE = 0;
     public A[] ar;
 
     public static String outBorderError = "Выход за границы массива";
     public static String wrongSizeError = "Массив < 1";
     public static String elementError404 = "Элемента не существует";
-
 
     public DynamicArray() {
         ar = (A[]) new Object[DEFAULT_SIZE];
