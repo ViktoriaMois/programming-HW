@@ -28,4 +28,9 @@ public class Stack<A> {
         return ar.getData(size - 1);
     }
 
+    public void print() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(ar.getData(i));
+        }
+    }
 }
