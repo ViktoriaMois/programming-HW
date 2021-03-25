@@ -48,4 +48,12 @@ public class StackTest {
             assertEquals(2, stack.getSize());
         }
 
+        @Test
+        public void testPeek (){
+            Stack<Integer> stack = new Stack<Integer>();
+            stack.push(1);
+            stack.push(2);
+            assertEquals(2, stack.peek());
+        }
+
     }
