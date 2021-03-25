@@ -24,4 +24,8 @@ public class Stack<A> {
         size--;
     }
 
+    public A peek(){
+        return ar.getData(size - 1);
+    }
+
 }
