@@ -2,57 +2,60 @@ package code;
 
 public class DynamicArray <A> {
 
-    private int DEFAULT_SIZE = 10;
-    private A[] Array;
+    public int DEFAULT_SIZE = 10;
+    public A[] ar;
+
+    public static String Error = "Выход за границы массива";
 
     public DynamicArray () {
-        Array = (A[]) new Object[DEFAULT_SIZE];
+        ar = (A[]) new Object[DEFAULT_SIZE];
 
     }
 
-    private void throwsException() {
-        throw new ArithmeticException("False");
-
+    public DynamicArray(int size){
+        if (size < 1) {
+            throw new RuntimeException(Error);
+        }
+        ar =  (A[]) new Object[size];
     }
 
-    public DynamicArray(int StartSize){
-        if (StartSize > -1)
-            Array =  (A[]) new Object[StartSize];
-        else
-            throwsException();
-
-    }
-
-    public int Size(){
-        return Array.length;
-
-    }
-
-    public A get(int index){
-        if (Size() <= index || index < 0)
-            throwsException();
-        return Array[index];
+    public void addData(A value) {
+        resize(ar.length + 1);
+        setData(ar.length - 1, value);
     }
 
 
-    public void set (int index, A value){
-        if (Size() <= index || index < 0)
-            throwsException();
-        else
-            Array[index] = value;
+    public int getSize(){
+        return ar.length;
+
+    }
+
+    public A getData (int index){
+        if (ar.length < index || index < 0) {
+            throw new RuntimeException(Error);
+        }
+        return ar[index];
+    }
+
+
+    public void setData (int index, A value){
+        if (ar.length < index || index < 0) {
+            throw new RuntimeException(Error);
+        }
+
+            ar[index] = value;
 
     }
 
     public void resize (int NewSize){
         if (NewSize < 1)
-            throwsException();
-
+            throw new RuntimeException(Error);
     }
 
     public int parameter(){
         int num = 0;
-        for (int i = 0; i < Size(); i++){
-            if(Array[i] != null){
+        for (int i = 0; i < ar.length; i++){
+            if(ar[i] != null){
                num = i;
 
             }
@@ -62,24 +65,25 @@ public class DynamicArray <A> {
     }
 
     public int findFirst(A value){
-        for (int i = 0; i < Size(); i++){
-            if (Array[i] == value){
+        for (int i = 0; i < ar.length; i++){
+            if (ar[i] == value){
                 return i;
-
             }
         }
-       return -1;
-
+        throw new RuntimeException(Error);
     }
 
     public int findLast(A value){
-        for (int i = Size() - 1; i > -1; i--){
-            if (Array[i] == value){
-                return i;
+        int lastind = -1;
+        for (int i = 0; i < ar.length; i++){
+            if (ar[i] == value){
+                lastind = i;
             }
         }
-        return -1;
-
+        if (lastind >= 0){
+            return lastind;
+        }
+        throw new RuntimeException(Error);
     }
 
 
