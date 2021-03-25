@@ -14,13 +14,13 @@ public class StackTest {
         @Test
         public void testIsEmptyTrue (){
             Stack<Integer> stack = new Stack<Integer>();
-            stack.pop();
             assertEquals(true, stack.isEmpty());
         }
 
         @Test
         public void testIsEmptyFalse(){
             Stack<Integer> stack = new Stack<Integer>();
+            stack.push(10);
             assertEquals(false, stack.isEmpty());
         }
 
@@ -28,6 +28,7 @@ public class StackTest {
         public void testPushSize (){
             Stack<Integer> stack = new Stack<Integer>();
             stack.push(1);
+            stack.push(2);
             assertEquals(2, stack.getSize());
         }
 
@@ -41,11 +42,11 @@ public class StackTest {
         @Test
         public void testGetSize (){
             Stack<Integer> stack = new Stack<Integer>();
-            assertEquals(1, stack.getSize());
+            assertEquals(0, stack.getSize());
 
             stack.push(751);
 
-            assertEquals(2, stack.getSize());
+            assertEquals(1, stack.getSize());
         }
 
         @Test
@@ -62,7 +63,7 @@ public class StackTest {
             stack.push(2);
             stack.push(3);
             stack.pop();
-            assertEquals(2, stack.getSize());
+            assertEquals(1, stack.getSize());
         }
 
 
