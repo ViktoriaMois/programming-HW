@@ -19,4 +19,9 @@ public class Stack<A> {
         size++;
     }
 
+    public void pop(){
+        ar.resize(size - 1);
+        size--;
+    }
+
 }
