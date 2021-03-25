@@ -25,6 +25,16 @@ public class DynamicArrayTests extends Assertions {
 //    }
 
     @Test
+    public void testGetSize(){
+        DynamicArray array = new DynamicArray(10);
+        assertEquals(10, array.ar.length);
+    }
+
+    @Test
+    public void testSize(){
+        DynamicArray array = new DynamicArray(15);
+        assertEquals(15, array.getSize());
+    }
 
     @Test
     public void testAddData(){
