@@ -86,5 +86,18 @@ public class DynamicArray <A> {
         throw new RuntimeException(Error);
     }
 
+    public void remove(int index){
+        if (index < 0 || index > ar.length){
+            throw new RuntimeException(Error);
+        }
+        A[] newar = (A[]) new Object[ar.length - 1];
+        for (int i=0; i < index; i++) {
+            newar[i] = ar[i];
+        }
+        for (int i=index+1; i < ar.length; i++) {
+            newar[i-1] = ar[i];
+        }
+        ar = newar;
+    }
 
 }
