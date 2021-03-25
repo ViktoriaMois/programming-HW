@@ -5,10 +5,10 @@ import code.DynamicArray;
 public class Stack<A> {
     private int size = 0;
     private int top = -1;
-    DynamicArray<A> array = new DynamicArray<A>(size);
+    DynamicArray<A> array = new DynamicArray<A>(0);
 
     public boolean isEmpty() {
-        return (top == -1);
+        return (size == 0);
     }
 
     public int getSize() {
@@ -16,7 +16,7 @@ public class Stack<A> {
     }
 
     public void push(A value){
-        if (size > array.maxSize){
+        if (size > 15){
             throw new RuntimeException();
         }
         array.ar[top++] = value;
