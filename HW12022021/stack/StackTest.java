@@ -18,4 +18,10 @@ public class StackTest {
             assertEquals(true, stack.isEmpty());
         }
 
+        @Test
+        public void testIsEmptyFalse(){
+            Stack<Integer> stack = new Stack<Integer>();
+            assertEquals(false, stack.isEmpty());
+        }
+
     }
