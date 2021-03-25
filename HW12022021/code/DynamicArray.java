@@ -1,6 +1,6 @@
 package code;
 
-public class DynamicArray <A> {
+public class DynamicArray <A> {         //Task 1 complete
 
     public int maxSize = 15;
     public int DEFAULT_SIZE = 0;
