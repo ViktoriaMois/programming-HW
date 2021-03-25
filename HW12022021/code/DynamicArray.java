@@ -4,6 +4,7 @@ public class DynamicArray <A> {
 
     public int DEFAULT_SIZE = 0;
     public A[] ar;
+    public int maxSize = 15;
 
     public static String outBorderError = "Выход за границы массива";
     public static String wrongSizeError = "Массив < 1";
@@ -11,12 +12,14 @@ public class DynamicArray <A> {
 
     public DynamicArray() {
         ar = (A[]) new Object[DEFAULT_SIZE];
-
     }
 
     public DynamicArray(int size) {
         if (size < 1) {
             throw new RuntimeException(wrongSizeError);
+        }
+        if (size > maxSize){
+            throw new RuntimeException(outBorderError);
         }
         ar = (A[]) new Object[size];
     }
@@ -26,10 +29,8 @@ public class DynamicArray <A> {
         ar[ar.length - 1] = value;
     }
 
-
     public int getSize() {
         return ar.length;
-
     }
 
     public A getData(int index) {
@@ -39,14 +40,12 @@ public class DynamicArray <A> {
         return ar[index];
     }
 
-
     public void setData(int index, A value) {
         if (index < 0 || index > ar.length) {
             throw new RuntimeException(outBorderError);
         }
 
         ar[index] = value;
-
     }
 
     public void resize(int NewSize) {
@@ -71,7 +70,6 @@ public class DynamicArray <A> {
             }
         }
         return num + 1;
-
     }
 
     public int findFirst(A value) {
@@ -114,6 +112,5 @@ public class DynamicArray <A> {
         for (Object i : ar) {
             System.out.println(i);
         }
-
     }
 }
