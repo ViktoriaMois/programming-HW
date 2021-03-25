@@ -2,9 +2,9 @@ package code;
 
 public class DynamicArray <A> {
 
+    public int maxSize = 15;
     public int DEFAULT_SIZE = 0;
     public A[] ar;
-    public int maxSize = 15;
 
     public static String outBorderError = "Выход за границы массива";
     public static String wrongSizeError = "Массив < 1";
@@ -53,11 +53,11 @@ public class DynamicArray <A> {
             throw new RuntimeException(wrongSizeError);
         }
         A[] newAr = (A[]) new Object[NewSize];
-        int top = NewSize;
+        int t = NewSize;
         if (NewSize > ar.length) {
-            top = ar.length;
+            t = ar.length;
         }
-        System.arraycopy(ar, 0, newAr, 0, top);
+        System.arraycopy(ar, 0, newAr, 0, t);
         ar = newAr;
     }
 
@@ -98,14 +98,14 @@ public class DynamicArray <A> {
         if (index < 0 || index > ar.length) {
             throw new RuntimeException(outBorderError);
         }
-        A[] newar = (A[]) new Object[ar.length - 1];
+        A[] newAr = (A[]) new Object[ar.length - 1];
         for (int i = 0; i < index; i++) {
-            newar[i] = ar[i];
+            newAr[i] = ar[i];
         }
         for (int i = index + 1; i < ar.length; i++) {
-            newar[i - 1] = ar[i];
+            newAr[i - 1] = ar[i];
         }
-        ar = newar;
+        ar = newAr;
     }
 
     public void printAll() {
