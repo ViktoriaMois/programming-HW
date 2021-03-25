@@ -33,10 +33,14 @@ public class DynamicArrayTests extends Assertions {
     }
 
     @Test
-    public void DynamicArray_set_throwsException(){
-        DynamicArray dynamicArray = new DynamicArray();
-        assertThrows(ArithmeticException.class, () -> dynamicArray.set(-1, 5));
-        assertThrows(ArithmeticException.class, () -> dynamicArray.set(10, 18));
+    public void testFindFirst(){
+        DynamicArray array = new DynamicArray(15);
+        for (int i = 0; i < array.getSize(); i++) {
+            array.setData(i, "empty");
+        }
+        array.setData(1, 15);
+        assertEquals(1, array.findFirst(15));
+    }
 
     }
 
