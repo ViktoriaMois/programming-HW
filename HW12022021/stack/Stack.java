@@ -10,4 +10,8 @@ public class Stack<A> {
         return size == 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
 }
