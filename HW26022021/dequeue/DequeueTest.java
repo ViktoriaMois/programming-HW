@@ -61,3 +61,4 @@ public class DequeueTest {
         assertEquals(1, deq.peekFront());
     }
 }
+//Task 6 complete
