@@ -195,3 +195,5 @@ public class DoubleLinkedList<L> {
         System.out.println(counter.getData());
     }
 }
+
+//Task 3 complete
