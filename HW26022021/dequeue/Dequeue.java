@@ -41,5 +41,10 @@ public class Dequeue<L> {
         return (L) dll.getHead();
     }
 
+    public L peekBack(){
+        DoubleLinkedList dll = new DoubleLinkedList();
+        return (L) dll.getTail();
+    }
+
 
 }
