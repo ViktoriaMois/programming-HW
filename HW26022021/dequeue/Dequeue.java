@@ -23,5 +23,14 @@ public class Dequeue<L> {
         dll.addHead(data);
     }
 
+    public L popBack(){
+        DoubleLinkedList dll = new DoubleLinkedList();
+        if (size < 1){
+            dll.isEmpty();
+        }
+        dll.remove(dll.getTail());
+        return (L) dll.getTail();
+    }
+
 
 }
