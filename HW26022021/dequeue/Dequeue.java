@@ -13,5 +13,10 @@ public class Dequeue<L> {
         return size;
     }
 
+    public void pushBack(L data){
+        DoubleLinkedList dll = new DoubleLinkedList();
+        dll.addTail(data);
+    }
+
 
 }
