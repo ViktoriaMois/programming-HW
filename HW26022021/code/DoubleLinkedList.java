@@ -2,6 +2,7 @@ package code;
 
 public class DoubleLinkedList<L> {
 
+
     private DoubleLinkedListElement head;
     private DoubleLinkedListElement tail;
     private int size;
@@ -68,6 +69,16 @@ public class DoubleLinkedList<L> {
             counter = counter.getNextElement();
         }
         return counter;
+    }
+
+    public Object getLast() {
+        if(tail == null){return null;}
+        return tail.data;
+    }
+
+    public Object getFirst() {
+        if(head == null){return null;}
+        return head.data;
     }
 
     public void addHead(L data) {
