@@ -30,4 +30,13 @@ public class DequeueTest {
         assertEquals(1, deq.popBack());
     }
 
+    @Test
+    public void testPopFront(){
+        Dequeue deq = new Dequeue();
+        deq.pushFront(1);
+        deq.pushFront(2);
+        deq.popFront();
+        assertEquals(2, deq.popFront());
+    }
+
 }
