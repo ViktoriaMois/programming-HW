@@ -13,4 +13,12 @@ public class DequeueTest {
         assertEquals(3, deq.peekBack());
     }
 
+    @Test
+    public void testPushFront(){
+        Dequeue deq = new Dequeue();
+        deq.pushFront(1);
+        deq.pushBack(2);
+        assertEquals(1, deq.peekFront());
+    }
+
 }
