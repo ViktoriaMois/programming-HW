@@ -46,3 +46,4 @@ public class Stack<A> {
         }
     }
 }
+//Task 4 complete
