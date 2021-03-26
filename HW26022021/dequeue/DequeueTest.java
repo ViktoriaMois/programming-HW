@@ -50,4 +50,14 @@ public class DequeueTest {
         assertEquals(4, deq.peekBack());
     }
 
+    @Test
+    public void testPeekFront(){
+        Dequeue deq = new Dequeue();
+        deq.pushFront(1);
+        deq.pushFront(2);
+        deq.pushFront(3);
+        deq.pushFront(4);
+        deq.peekFront();
+        assertEquals(1, deq.peekFront());
+    }
 }
