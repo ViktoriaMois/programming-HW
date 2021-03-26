@@ -9,5 +9,9 @@ public class Dequeue<L> {
 
     int size = 0;
 
+    public int getSize(){
+        return size;
+    }
+
 
 }
