@@ -18,5 +18,10 @@ public class Dequeue<L> {
         dll.addTail(data);
     }
 
+    public void pushFront(L data){
+        DoubleLinkedList dll = new DoubleLinkedList();
+        dll.addHead(data);
+    }
+
 
 }
