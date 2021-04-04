@@ -8,4 +8,13 @@ public class NLogNSort {
             System.out.print(data[i] + " ");
     }
 
+    public static void mergeSort(int[] data, int l, int r) {
+        if (l < r) {
+            int m = (l + r) / 2;
+            mergeSort(data, l, m);
+            mergeSort(data, m + 1, r);
+            merge(data, l, m, r);
+        }
+    }
+
 }
