@@ -17,4 +17,24 @@ public class NLogNSort {
         }
     }
 
+    private static void merge(int[] subData, int l, int m, int r) {
+        int d = r - l + 1;
+        int[] Ar = new int[d];
+
+        int i = l;
+        int j = m + 1;
+        int k = 0;
+
+        while (i <= m || j <= r) {
+            if (i > m)
+                Ar[k++] = subData[j++];
+            else if (j > r)
+                Ar[k++] = subData[i++];
+            else if (subData[i] < subData[j])
+                Ar[k++] = subData[i++];
+            else
+                Ar[k++] = subData[j++];
+        }
+        for (j = 0; j < d; j++)
+            subData[l + j] = Ar[j];
 }
