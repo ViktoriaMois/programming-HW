@@ -27,4 +27,33 @@ public class ListHash {
         }
     }
 
+    public void insert(int data) {
+        int keyPose = data % tableSize;
+        TableObject newObject = new TableObject(keyPose, data);
+
+        while (LHtable.get(keyPose) != null) {
+            keyPose += 1;
+
+            if (keyPose >= LHtable.getSize()) {
+                throw new RuntimeException("Таблица заполнена");
+            }
+        }
+
+        LHtable.insert(keyPose, newObject);
+    }
+
+    public void remove(int data) {
+        int pos = data % tableSize;
+        if (LHtable.get(pos).data == data) {
+            LHtable.remove(pos);
+        } else {
+            for (int i = pos; i < LHtable.getSize(); i++) {
+                if (LHtable.get(i) != null && LHtable.get(i).data == data) {
+                    LHtable.remove(i);
+                    return;
+                }
+            }
+        }
+    }
+    
 }
