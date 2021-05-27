@@ -1,6 +1,30 @@
 package OffsetHashTable;
+
 import code.DynamicArray;
 
 public class ListHash {
+    int tableSize = 5;
+    DynamicArray<TableObject> LHtable;
+
+    public ListHash(int size) {
+
+        tableSize = size;
+        LHtable = new DynamicArray<TableObject>(tableSize);
+    }
+
+    public TableObject getElement(int data) {
+        int pos = data % tableSize;
+        if (LHtable.get(pos).data == data) {
+            return LHtable.get(pos);
+        } else {
+            for (int i = 0; i < LHtable.getSize(); i++) {
+
+                if (LHtable.get(i) != null && LHtable.get(i).data == data) {
+                    return LHtable.get(i);
+                }
+            }
+            return null;
+        }
+    }
 
 }

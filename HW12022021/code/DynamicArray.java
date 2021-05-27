@@ -127,4 +127,12 @@ public class DynamicArray <A> {         //Task 1 complete
             System.out.println(i);
         }
     }
+
+    public A get(int index) {
+        if (index < 0 || index > ar.length) {
+            return null;
+        }
+
+        return ar[index];
+    }
 }
