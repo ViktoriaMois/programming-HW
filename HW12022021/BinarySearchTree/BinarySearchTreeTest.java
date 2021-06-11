@@ -240,3 +240,4 @@ public class BinarySearchTreeTest {
         assertEquals(expected, actual);
     }
 }
+//Tasks 9&10 completed

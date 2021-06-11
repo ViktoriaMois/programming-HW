@@ -359,3 +359,4 @@ public class BinarySearchTree {
         }
     }
 }
+//Tasks 9&10 completed

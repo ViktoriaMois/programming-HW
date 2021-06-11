@@ -66,3 +66,4 @@ public class Node {
         return leftHeight - rightHeight;
     }
 }
+//Tasks 9&10 completed
