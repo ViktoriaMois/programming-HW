@@ -52,6 +52,10 @@ public class BinarySearchTree {
         }
     }
 
+    public Node search(String key) {
+        return searchRec(key, root);
+    }
+
     public Node getSuccessor(Node thisNode) {
         return getSuccessorRec(thisNode);
     }
@@ -68,8 +72,6 @@ public class BinarySearchTree {
 
         deleteRec(thisNode);
     }
-
-
 
     public Node getMin() {
         Node thisNode = root;
@@ -245,7 +247,24 @@ public class BinarySearchTree {
                 return doesExist;
             }
 
-            default -> throw new RuntimeException("there is no such node");
+            default -> throw new RuntimeException("Node do not exist");
         }
+    }
+
+    private static Node searchRec(String key, Node thisNode) {
+        if (thisNode == null) {
+            return null;
+        }
+        if (key.equals(thisNode.key)) {
+            return thisNode;
+        }
+        if (key.compareTo(thisNode.key) > 0) {
+            return searchRec(key, thisNode.rightNode);
+        }
+
+        else if (key.compareTo(thisNode.key) < 0) {
+            return searchRec(key, thisNode.leftNode);
+        }
+        return null;
     }
 }
