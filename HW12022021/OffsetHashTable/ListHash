@@ -1,15 +1,15 @@
 package OffsetHashTable;
 
-import code.*;
+import code.DynamicArray;
 
 public class ListHash {
     int tableSize = 5;
-    DynamicArrays.DynamicArray<TableObject> LHtable;
+    DynamicArray<TableObject> LHtable;
 
     public ListHash(int size) {
 
         tableSize = size;
-        LHtable = new DynamicArrays.DynamicArray<TableObject>(tableSize);
+        LHtable = new DynamicArray<TableObject>(tableSize);
     }
 
     public TableObject getElement(int data) {
