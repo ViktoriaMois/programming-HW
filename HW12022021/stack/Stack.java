@@ -1,6 +1,6 @@
 package stack;
 
-import code.DynamicArray;
+import code.*;
 
 public class Stack<A> {
     private int size = 0;
@@ -19,7 +19,7 @@ public class Stack<A> {
         if (size > 15){
             throw new RuntimeException();
         }
-        array.ar[top++] = value;
+        array.list[top++] = value;
     }
 
     public A pop(){
@@ -27,7 +27,7 @@ public class Stack<A> {
             throw new RuntimeException();
         }
         else {
-            return array.ar[top--];
+            return array.list[top--];
         }
     }
 
@@ -36,13 +36,13 @@ public class Stack<A> {
             throw new RuntimeException();
         }
         else {
-            return array.ar[top];
+            return array.list[top];
         }
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(array.getData(i));
+            System.out.println(array.getsize());
         }
     }
 }

@@ -1,15 +1,15 @@
 package OffsetHashTable;
 
-import code.DynamicArray;
+import code.*;
 
 public class ListHash {
     int tableSize = 5;
-    DynamicArray<TableObject> LHtable;
+    DynamicArrays.DynamicArray<TableObject> LHtable;
 
     public ListHash(int size) {
 
         tableSize = size;
-        LHtable = new DynamicArray<TableObject>(tableSize);
+        LHtable = new DynamicArrays.DynamicArray<TableObject>(tableSize);
     }
 
     public TableObject getElement(int data) {
@@ -17,7 +17,7 @@ public class ListHash {
         if (LHtable.get(pos).data == data) {
             return LHtable.get(pos);
         } else {
-            for (int i = 0; i < LHtable.getSize(); i++) {
+            for (int i = 0; i < LHtable.getsize(); i++) {
 
                 if (LHtable.get(i) != null && LHtable.get(i).data == data) {
                     return LHtable.get(i);
@@ -34,7 +34,7 @@ public class ListHash {
         while (LHtable.get(keyPose) != null) {
             keyPose += 1;
 
-            if (keyPose >= LHtable.getSize()) {
+            if (keyPose >= LHtable.getsize()) {
                 throw new RuntimeException("Таблица заполнена");
             }
         }
@@ -47,7 +47,7 @@ public class ListHash {
         if (LHtable.get(pos).data == data) {
             LHtable.remove(pos);
         } else {
-            for (int i = pos; i < LHtable.getSize(); i++) {
+            for (int i = pos; i < LHtable.getsize(); i++) {
                 if (LHtable.get(i) != null && LHtable.get(i).data == data) {
                     LHtable.remove(i);
                     return;
