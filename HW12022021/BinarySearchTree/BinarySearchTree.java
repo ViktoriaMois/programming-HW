@@ -14,6 +14,8 @@ public class BinarySearchTree {
             root = new Node(key);
             return;
         }
+        balance(Objects.requireNonNull(insertRec(key, root)).parNode);
+
     }
 
     private Node insertRec(String data, Node thisNode) {
@@ -275,5 +277,85 @@ public class BinarySearchTree {
             return searchRec(key, thisNode.leftNode);
         }
         return null;
+    }
+
+    private Node rotateRight(Node focusNode) {
+        Node parentNode = focusNode.parNode;
+        Node leftChild = focusNode.leftNode;
+        focusNode.leftNode = leftChild.rightNode;
+        if (leftChild.rightNode != null) {
+            leftChild.rightNode.parNode = leftChild;
+        }
+
+        leftChild.rightNode = focusNode;
+        focusNode.parNode = leftChild;
+        leftChild.parNode = parentNode;
+
+        if (parentNode != null) {
+            if (parentNode.leftNode == focusNode) {
+                parentNode.leftNode = leftChild;
+            } else {
+                parentNode.rightNode = leftChild;
+            }
+        }
+
+        root = getHighest();
+        return leftChild;
+    }
+
+    private Node rotateLeft(Node focusNode) {
+        Node parentNode = focusNode.parNode;
+        Node rightChild = focusNode.rightNode;
+        focusNode.rightNode = rightChild.leftNode;
+
+        if (rightChild.rightNode != null) {
+            rightChild.rightNode.parNode = rightChild;
+        }
+
+        rightChild.leftNode = focusNode;
+        focusNode.parNode = rightChild;
+        rightChild.parNode = parentNode;
+
+        if (parentNode != null) {
+            if (parentNode.leftNode == focusNode) {
+                parentNode.leftNode = rightChild;
+            } else {
+                parentNode.rightNode = rightChild;
+            }
+        }
+
+        root = getHighest();
+        return rightChild;
+    }
+
+    public void balance(Node focusNode) {
+        while (focusNode != null) {
+
+            if (focusNode.getBalance() > 1) {
+
+                if (focusNode.leftNode.getBalance() > 0) {
+
+                    focusNode = rotateRight(focusNode);
+                } else {
+
+                    focusNode.leftNode = rotateLeft(focusNode.leftNode);
+                    focusNode = rotateRight(focusNode);
+                }
+            }
+
+            else if (focusNode.getBalance() < -1) {
+
+                if (focusNode.rightNode.getBalance() < 0) {
+
+                    focusNode = rotateLeft(focusNode);
+                } else {
+
+                    focusNode.rightNode = rotateRight(focusNode.rightNode);
+                    focusNode = rotateLeft(focusNode);
+                }
+            }
+
+            focusNode = focusNode.parNode;
+        }
     }
 }
