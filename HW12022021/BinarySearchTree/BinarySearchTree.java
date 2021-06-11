@@ -251,6 +251,15 @@ public class BinarySearchTree {
         }
     }
 
+    private Node getHighest() {
+        Node firstNode = getMin();
+        while (firstNode.parNode != null) {
+            firstNode = firstNode.parNode;
+        }
+
+        return firstNode;
+    }
+
     private static Node searchRec(String key, Node thisNode) {
         if (thisNode == null) {
             return null;
