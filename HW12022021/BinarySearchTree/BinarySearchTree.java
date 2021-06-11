@@ -52,5 +52,180 @@ public class BinarySearchTree {
         }
     }
 
-    
+    public Node getSuccessor(Node thisNode) {
+        return getSuccessorRec(thisNode);
+    }
+
+    public Node getPredecessor(Node thisNode) {
+        return getPredecessorRec(thisNode);
+    }
+
+
+    public void delete(Node thisNode) {
+        if (thisNode == null) {
+            return;
+        }
+
+        deleteRec(thisNode);
+    }
+
+    private Node deleteRec(Node thisNode) {
+
+        if (thisNode.parNode == null) {
+            thisNode.parNode = new Node();
+            thisNode.parNode.leftNode = thisNode;
+        }
+        boolean isLeftChild = thisNode.parNode.leftNode == thisNode;
+
+        if (thisNode.leftNode == null & thisNode.rightNode == null) {
+
+            if (isLeftChild) {
+
+                thisNode.parNode.leftNode = null;
+            } else {
+
+                thisNode.parNode.rightNode = null;
+            }
+            if (root.leftNode == null & root.rightNode == null) {
+
+                root = null;
+            }
+        } else if (thisNode.leftNode != null & thisNode.rightNode == null) {
+
+            if (isLeftChild) {
+                thisNode.parNode.leftNode = thisNode.leftNode;
+            } else {
+                thisNode.parNode.rightNode = thisNode.leftNode;
+            }
+
+            thisNode.leftNode.parNode = thisNode.parNode;
+
+            if (thisNode == root) {
+                root = thisNode.leftNode;
+            }
+        } else if (thisNode.leftNode == null & thisNode.rightNode != null) {
+
+            if (isLeftChild) {
+                thisNode.parNode.leftNode = thisNode.rightNode;
+            } else {
+                thisNode.parNode.rightNode = thisNode.rightNode;
+            }
+
+            thisNode.rightNode.parNode = thisNode.parNode;
+
+            if (thisNode == root) {
+                root = thisNode.rightNode;
+            }
+        } else {
+            Node successorNode = getSuccessor(thisNode);
+
+
+            successorNode.parNode.leftNode = successorNode.rightNode;
+            if (successorNode.rightNode != null) {
+                successorNode.rightNode.parNode = successorNode.parNode;
+            }
+
+            successorNode.rightNode = thisNode.rightNode;
+            thisNode.rightNode.parNode = successorNode;
+
+            successorNode.parNode = thisNode.parNode;
+            if (isLeftChild) {
+                thisNode.parNode.leftNode = successorNode;
+            } else {
+                thisNode.parNode.rightNode = successorNode;
+            }
+
+            successorNode.leftNode = thisNode.leftNode;
+            successorNode.leftNode.parNode = successorNode;
+
+            thisNode.parNode = null;
+            thisNode.leftNode = null;
+            thisNode.rightNode = null;
+            thisNode.key = null;
+
+            if (root.key == null) {
+                root = successorNode;
+                root.parNode = null;
+            }
+
+            return successorNode;
+        }
+
+        return null;
+    }
+
+    private static Node getSuccessorRec(Node thisNode) {
+        if (nodeExists(thisNode, "right")) {
+            thisNode = thisNode.rightNode;
+            while (thisNode.leftNode != null) {
+                thisNode = thisNode.leftNode;
+            }
+            return thisNode;
+        } else {
+            while (nodeExists(thisNode, "parent")) {
+                Node thisNodeParent = thisNode.parNode;
+                if (thisNodeParent.leftNode == thisNode) {
+                    return thisNodeParent;
+                } else {
+                    thisNode = thisNodeParent;
+                }
+            }
+            return null;
+        }
+    }
+
+    private static Node getPredecessorRec(Node thisNode) {
+        if (nodeExists(thisNode, "left")) {
+            thisNode = thisNode.leftNode;
+            while (nodeExists(thisNode, "right")) {
+                thisNode = thisNode.rightNode;
+            }
+            return thisNode;
+        } else {
+
+            while (nodeExists(thisNode, "parent")) {
+                Node thisNodeParent = thisNode.parNode;
+                if (thisNodeParent.rightNode == thisNode) {
+
+                    return thisNodeParent;
+                } else {
+                    thisNode = thisNodeParent;
+                }
+            }
+            return null;
+        }
+    }
+
+    private static boolean nodeExists(Node thisNode, String whichNode) {
+        boolean doesExist;
+
+        switch (whichNode) {
+            case "right" -> {
+                try {
+                    doesExist = thisNode.rightNode != null;
+                } catch (Exception NullPointerException) {
+                    doesExist = false;
+                }
+                return doesExist;
+            }
+            case "left" -> {
+                try {
+                    doesExist = thisNode.leftNode != null;
+                } catch (Exception NullPointerException) {
+                    doesExist = false;
+                }
+                return doesExist;
+            }
+            case "parent" -> {
+                try {
+                    doesExist = thisNode.parNode != null;
+                } catch (Exception NullPointerException) {
+                    doesExist = false;
+                }
+                return doesExist;
+            }
+
+            default -> throw new RuntimeException("there is no such node");
+        }
+    }
 }
