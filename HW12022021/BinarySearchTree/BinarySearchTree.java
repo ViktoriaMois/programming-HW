@@ -69,6 +69,26 @@ public class BinarySearchTree {
         deleteRec(thisNode);
     }
 
+
+
+    public Node getMin() {
+        Node thisNode = root;
+        while (nodeExists(thisNode, "left")) {
+            thisNode = thisNode.leftNode;
+        }
+
+        return thisNode;
+    }
+
+    public Node getMax() {
+        Node thisNode = root;
+        while (nodeExists(thisNode, "right")) {
+            thisNode = thisNode.rightNode;
+        }
+
+        return thisNode;
+    }
+
     private Node deleteRec(Node thisNode) {
 
         if (thisNode.parNode == null) {
