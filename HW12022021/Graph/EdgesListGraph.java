@@ -48,15 +48,15 @@ public class EdgesListGraph {
             nodes = new HashSet<>();
         }
 
-        public boolean AddEdge(Node e, Node k, int weight) {
+        public boolean insertEdge(Node e, Node k, int weight) {
             return e.getEdges().add(new Edge(k, weight)) && k.getEdges().add(new Edge(e, weight));
         }
 
-        public boolean RemoveEdge(Node e, Node k, int weight) {
+        public boolean deleteEdge(Node e, Node k, int weight) {
             return e.getEdges().remove(new Edge(k, weight)) && k.getEdges().add(new Edge(e, weight));
         }
 
-        public boolean AddVertex(Node v) {
+        public boolean insertVertex(Node v) {
             return nodes.add(v);
         }
     }

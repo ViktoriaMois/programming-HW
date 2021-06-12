@@ -20,7 +20,7 @@ public class AdjacencyListGraph {
         }
     }
 
-    public void addEdge(int i, int j) {
+    public void insertEdge(int i, int j) {
         if (i > n || j > n) {
             throwsOutOfBordersExc();
         }
@@ -28,7 +28,7 @@ public class AdjacencyListGraph {
         adj.get(j).add(i);
     }
 
-    public void removeEdge(int i, int j) {
+    public void deleteEdge(int i, int j) {
         for (int k = 0; k < adj.get(i).size(); k++) {
             if (adj.get(i).get(k) == j) {
                 adj.get(i).remove(k);
@@ -37,7 +37,7 @@ public class AdjacencyListGraph {
         }
     }
 
-    public boolean hasEdge(int i, int j) {
+    public boolean existEdge(int i, int j) {
         return adj.get(i).contains(j);
     }
 }

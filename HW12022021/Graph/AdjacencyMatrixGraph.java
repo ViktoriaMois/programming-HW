@@ -15,7 +15,7 @@ public class AdjacencyMatrixGraph {
         adjMatrix = new boolean[numVertices][numVertices];
     }
 
-    public void addEdge(int i, int j) {
+    public void insertEdge(int i, int j) {
         if (i > numVertices || j > numVertices) {
             throwsOutOfBordersExc();
         }
@@ -23,12 +23,12 @@ public class AdjacencyMatrixGraph {
         adjMatrix[j][i] = true;
     }
 
-    public void removeEdge(int i, int j) {
+    public void deleteEdge(int i, int j) {
         adjMatrix[i][j] = false;
         adjMatrix[j][i] = false;
     }
 
-    public boolean hasEdge(int i, int j) {
+    public boolean existEdge(int i, int j) {
         return adjMatrix[i][j];
     }
 }
