@@ -1,7 +1,4 @@
 package RBTree;
-import RBTree.*;
-
-import java.time.chrono.ThaiBuddhistChronology;
 
 public class RBTree {
     Node root;
@@ -137,6 +134,92 @@ public class RBTree {
             }
         }
         return pre;
+    }
+
+    public void insert(String key) {
+
+        Node node = new Node(key);
+        node.parentNode = null;
+        node.key = key;
+        node.leftNode = null;
+        node.rightNode = null;
+        node.nodeColor = 1;
+
+        Node y = null;
+        Node x = this.root;
+
+        while (x != null) {
+            y = x;
+            if (node.key.compareTo(x.key) < 0) {
+                x = x.leftNode;
+            } else {
+                x = x.rightNode;
+            }
+        }
+
+        node.parentNode = y;
+        if (y == null) {
+            root = node;
+        } else if (node.key.compareTo(y.key) < 0) {
+            y.leftNode = node;
+        } else {
+            y.rightNode = node;
+        }
+
+        if (node.parentNode == null){
+            node.nodeColor = 0;
+            return;
+        }
+
+        if (node.parentNode.parentNode == null) {
+            return;
+        }
+
+        insertRec(node);
+    }
+
+    private void insertRec(Node k){
+        Node u;
+        while (k.parentNode.nodeColor == 1) {
+            if (k.parentNode == k.parentNode.parentNode.rightNode) {
+                u = k.parentNode.parentNode.leftNode;
+                if (u.nodeColor == 1) {
+                    u.nodeColor = 0;
+                    k.parentNode.nodeColor = 0;
+                    k.parentNode.parentNode.nodeColor = 1;
+                    k = k.parentNode.parentNode;
+                } else {
+                    if (k == k.parentNode.leftNode) {
+                        k = k.parentNode;
+                        rotateRight(k);
+                    }
+                    k.parentNode.nodeColor = 0;
+                    k.parentNode.parentNode.nodeColor = 1;
+                    rotateLeft(k.parentNode.parentNode);
+                }
+            } else {
+                u = k.parentNode.parentNode.rightNode;
+
+                if (u.nodeColor == 1) {
+                    u.nodeColor = 0;
+                    k.parentNode.nodeColor = 0;
+                    k.parentNode.parentNode.nodeColor = 1;
+                    k = k.parentNode.parentNode;
+                } else {
+                    if (k == k.parentNode.rightNode) {
+                        k = k.parentNode;
+                        rotateLeft(k);
+                    }
+                    k.parentNode.nodeColor = 0;
+                    k.parentNode.parentNode.nodeColor = 1;
+                    rotateRight(k.parentNode.parentNode);
+                }
+            }
+            if (k == root) {
+                break;
+            }
+        }
+        root.nodeColor = 0;
     }
 
     
