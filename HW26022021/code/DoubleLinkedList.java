@@ -71,6 +71,25 @@ public class DoubleLinkedList<L> {
         return counter;
     }
 
+    public L getValueByIndex(int index) {
+
+        if (index < 0 || index > size) {
+            throw new RuntimeException(outOfRangeError);
+        }
+
+        int currentIndex = 0;
+
+        DoubleLinkedListElement<L> iterator = head;
+
+        while (currentIndex != index) {
+            iterator = iterator.getNextElement();
+            currentIndex++;
+        }
+
+        return iterator.data;
+    }
+
+
     public Object getLast() {
         if(tail == null){return null;}
         return tail.data;
@@ -158,6 +177,55 @@ public class DoubleLinkedList<L> {
 
         size--;
     }
+
+    public void removeElement(int id) {
+        DoubleLinkedListElement<L> temp = head;
+        temp.next = head.next;
+        int counter = 0;
+
+        while (temp.next != null && counter != id) {
+
+            temp = temp.next;
+            counter++;
+        }
+
+        if (counter == id) {
+
+            if (temp.prev == null && temp.next == null) {
+                head = null;
+                tail = null;
+                size--;
+                return;
+
+            }
+
+            if (temp.prev == null) {
+
+                head = temp.next;
+                head.prev = null;
+                size--;
+                return;
+            }
+
+            if (temp.next == null) {
+
+                tail = temp.prev;
+                tail.next = null;
+                size--;
+                return;
+            }
+
+            DoubleLinkedListElement<L> prevElement = temp.prev;
+            DoubleLinkedListElement<L> nextElement = temp.next;
+            nextElement.prev = prevElement;
+            prevElement.next = nextElement;
+            size--;
+            return;
+        }
+
+        throw new IllegalArgumentException(outOfRangeError);
+    }
+
 
     public void searchIndex(L data) {
         int i = 1;
