@@ -89,6 +89,22 @@ public class DoubleLinkedList<L> {
         return iterator.data;
     }
 
+    public Boolean contains(L data) {
+        boolean contains = false;
+        DoubleLinkedListElement<L> iterator = head;
+
+        while (iterator != null && iterator.getNextElement() != null) {
+            if (iterator.data.equals(data)) {
+                contains = true;
+            }
+            iterator = iterator.getNextElement();
+        }
+
+        if (!isEmpty() && iterator.data.equals(data)) {
+            contains = true;
+        }
+        return contains;
+    }
 
     public Object getLast() {
         if(tail == null){return null;}
